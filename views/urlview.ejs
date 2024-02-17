@@ -1,0 +1,36 @@
+<%- include("./partials/header") %>
+
+<h1> Url shortner app</h1>
+<form action="/api/urls" method="POST">
+    <label>Original URL:</label>
+    <input type="text" name="originalUrl">
+    <input type="submit" value="Shorten">
+</form>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">SL NO</th>
+        <th scope="col">Short Id</th>
+        <th scope="col">Original Url</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        <% url.forEach((urls,index) => { %>
+      <tr>
+        
+        <td><%= index + 1 %></td>
+        <td><%= urls.shortId %></td>
+        <td><%= urls.originalUrl %></td>
+        
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+
+
+<%- include("./partials/footer") %>
